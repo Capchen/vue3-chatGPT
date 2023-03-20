@@ -1,4 +1,9 @@
-export const Tags = {
+
+const translate = (options) => {
+  return options.message;
+}
+
+const Tags = {
   favorite: {
     label: translate({ message: "常用" }),
     description: translate({
@@ -243,3 +248,12 @@ export const Tags = {
     color: "#ebcb63",
   },
 };
+
+
+export const TagsList = Object.keys(Tags).map((key) => {
+  const tag = Tags[key];
+  return {
+    ...tag,
+    tag: key,
+  };
+});
